@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Captcha solver</title>
+</head>
+<body>
+    {% if image_url %}
+    <img src="{{ image_url }}" alt="Image to be checked">
+    <form action="/process" method="post">
+        <input type="hidden" name="image_key" value="{{ image_key }}">
+        <input type="text" name="digit_code" placeholder="Enter 5-digit code" required pattern="\d{5}">
+        <button type="submit">Submit</button>
+    </form>
+    {% else %}
+    <p>No more images to be checked.</p>
+    {% endif %}
+</body>
+</html>
