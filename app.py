@@ -38,7 +38,7 @@ def process():
     digit_code = request.form['digit_code']
     image_key = request.form['image_key']
     
-    new_key = SOLVED_PREFIX + f"{digit_code}.jpg"
+    new_key = SOLVED_PREFIX + f"{digit_code}.png"
     
     s3_client.copy_object(Bucket=S3_BUCKET, CopySource={'Bucket': S3_BUCKET, 'Key': image_key}, Key=new_key)
     
